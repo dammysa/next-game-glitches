@@ -18,7 +18,9 @@ export default async function PrimaryPage() {
   return (
     <div>
       <h1>All Glitches</h1>
-
+      <Link href="/posts/new" className="text-blue-400 hover:underline">
+        Submit a New Glitch
+      </Link>
       {posts.map((post) => (
         <div key={post.id}>
           <Link
