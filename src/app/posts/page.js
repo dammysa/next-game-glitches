@@ -2,6 +2,8 @@ import Link from "next/link";
 import pg from "pg";
 import slugify from "slugify";
 
+import PostCard from "./components/PostCard";
+
 export default async function PrimaryPage() {
   const db = new pg.Pool({ connectionString: process.env.DB_CONN });
 
@@ -27,11 +29,7 @@ export default async function PrimaryPage() {
             {/*https://www.npmjs.com/package/slugify - I could have also just made a function with .toLowercase() .replace etc*/}
             <h2>{post.title}</h2>
           </Link>
-          <p>Game: {post.game}</p>
-          <p>By: {post.username}</p>
-          <p>{post.description}</p>
-
-          {post.video_url && <iframe></iframe>}
+          <PostCard post={post} />
         </div>
       ))}
     </div>
