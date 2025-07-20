@@ -2,7 +2,7 @@ import Link from "next/link";
 import pg from "pg";
 import slugify from "slugify";
 
-import PostCard from "./components/PostCard";
+import PostCard from "../components/PostCard";
 
 export default async function PrimaryPage() {
   const db = new pg.Pool({ connectionString: process.env.DB_CONN });
@@ -12,6 +12,9 @@ export default async function PrimaryPage() {
 
   console.log(posts);
 
+  {
+    /*https://www.npmjs.com/package/slugify - I could have also just made a function with .toLowercase() .replace etc*/
+  }
   return (
     <div>
       <h1>All Glitches</h1>
@@ -24,9 +27,6 @@ export default async function PrimaryPage() {
               locale: "en",
             })}`}
           >
-            {" "}
-            {/* ^This auto completed with prettier */}
-            {/*https://www.npmjs.com/package/slugify - I could have also just made a function with .toLowercase() .replace etc*/}
             <h2>{post.title}</h2>
           </Link>
           <PostCard post={post} />

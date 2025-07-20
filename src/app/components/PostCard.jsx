@@ -1,7 +1,7 @@
 import convertToEmbedURL from "./convertToEmbedUrl";
 
 export default function PostCard({ post }) {
-  const { game, username, description, video_url } = post;
+  const { title, game, username, description, video_url } = post;
   return (
     <div>
       <p>Game: {game}</p>
